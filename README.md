@@ -1,1 +1,2 @@
-# This repository is for a college project - How to cheat in sink ships.
+# INF3_PRAK
+Source code for practicals WS2019/2020
