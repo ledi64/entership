@@ -35,6 +35,9 @@ TASK5.o:	TASK5.C
 
 main.o:	main.C
 	$(CC) -c $<  -std=c++11	
+	
+MyTCPServer.o:	MyTCPServer.C
+	$(CC) -c $<  -std=c++11	
 
 
 
@@ -47,7 +50,9 @@ server:	server.o
 
 client:	client.o
 	$(CC) -o client client.o SIMPLESOCKET.o -L/usr/lib/x86_64-linux-gnu -ldl -lstdc++  -std=c++11
-	
+
+MyTCPServer:	MyTCPServer.o
+	$(CC) -o MyTCPServer MyTCPServer.o SIMPLESOCKET.o -L/usr/lib/x86_64-linux-gnu -ldl -lstdc++  -std=c++11	
 clean:
 	-rm -r -f   $(DEMOTARGET) *.o DOXYGENDOC  *.txt
 
