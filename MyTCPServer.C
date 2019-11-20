@@ -17,12 +17,12 @@
 #include <sys/socket.h> // for socket creation
 #include <netinet/in.h> //contains constants and structures needed for internet domain addresses
 
-#include "SIMPLESOCKET.H"
+//#include "SIMPLESOCKET.H"
 #include "MyTCPServer.H"
 #include <string>
 
 using namespace std;
 
-string TCPserver::myResponse(string input){
+string MyTCPServer::myResponse(string input){
 	return string("Es hat funktioniert.");
 }

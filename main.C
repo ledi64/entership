@@ -20,15 +20,18 @@
 #include "TASK4.H"
 #include "TASK5.H"
 #include "TASK6.H"
+#include "MyTCPServer.H"
+#include "DestroyShip.H"
 
 using namespace std;
 
 
 int main(){
-	srand(time(nullptr));
+//    srand(time(nullptr));
+
+//	StrategyOneShip test;
+
+	//test.strat_gothrew();
+
+	return 0;
 }
-
-
-
-
-

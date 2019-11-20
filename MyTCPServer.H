@@ -12,6 +12,9 @@
 #include <string>
 
 class MyTCPServer : public TCPserver{
+public:
+	MyTCPServer(int port, int maxDataSizeRecv) : TCPserver(port, maxDataSizeRecv){};
+
 protected:
 
 	virtual string myResponse(string input);
