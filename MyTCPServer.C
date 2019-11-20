@@ -19,6 +19,10 @@
 
 #include "SIMPLESOCKET.H"
 #include "MyTCPServer.H"
+#include <string>
 
 using namespace std;
 
+string TCPserver::myResponse(string input){
+	return string("Es hat funktioniert.");
+}

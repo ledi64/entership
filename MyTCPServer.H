@@ -19,4 +19,3 @@ protected:
 
 
 #endif /* MYTCPSERVER_H_ */
-
