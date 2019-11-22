@@ -20,9 +20,61 @@
 //#include "SIMPLESOCKET.H"
 #include "MyTCPServer.H"
 #include <string>
+#include <sstream>
+#include <iostream>
+#include "TASK3.H"
 
 using namespace std;
 
 string MyTCPServer::myResponse(string input){
-	return string("Es hat funktioniert.");
+
+	std::stringstream ss;
+	int x,y;
+	TASK3::ShootResult result;
+
+	/*
+	 * Antwortmöglichkeiten bei "Koordinatenaustausch"
+	 *
+	 * res[0] = "Water"
+	 * res[1] = "Ship-Hit"
+	 * res[2] = "Ship-Destroyed"
+	 * res[3] = "All-Ships-Destroyed"
+	 * res[4] = "Game-Over"
+	 *
+	 */
+
+	if(input.compare(0,6,"COORD[") == 0){
+		if(2!=sscanf(input.c_str(), "COORD[%d;%d]", &x, &y) ){
+			return string("RES[-1]");
+		}
+
+		if( (x < 1) || (y < 1) || (x > 10) || (y > 10) ){
+			return string("RES[-2]");
+		}
+
+		cout << "shoot(" << x << "," << y << ")\n";
+
+		result = world_->shoot(x,y);
+
+		//result = (TASK3::ShootResult) (rand() % 6);
+		ss << "RES[" << result << "]";
+		return ss.str();
+	};
+
+	//Neue Welt erzeugen (del altes Objekt, new neues Objekt
+
+	if(input.compare(0,7, "NEWGAME") == 0 ){
+
+		delete world_;
+
+		world_ = new TASK3::World;
+
+		cout << endl;
+
+		world_->printBoard();
+
+		return string("CREATING NEW GAME");
+	};
+
+	return string("UNKNOWN COMMAND");
 }

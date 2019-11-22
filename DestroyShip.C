@@ -13,6 +13,35 @@
 
 using namespace std;
 
+virtual void StrategyOneShip::strat_gothrew()
+{
+	int x, y;
+	x = 1;
+	y = 1;
+
+	while(y <= 10)
+	{
+	    while (x <= 10)
+	    {
+	        cout << "X-Koordinate:  ";
+	        cout << x << endl;
+	        cout << "Y-Koordinate:  ";
+	        cout << y << endl << endl;
+
+	        x++;
+	    }
+
+	    y++;
+	    x = 1;
+	}
+}
+
+virtual void StrategyTwoShip::strat_sourroundings()
+{
+
+};
+
+
 
 
 

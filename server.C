@@ -23,6 +23,8 @@
 int main(){
 	//TCPserver srv(2021,25);
 
+	srand(time(nullptr));
+
 	MyTCPServer srv(2021,25);
 
 	srv.run();

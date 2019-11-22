@@ -11,7 +11,8 @@
 class IStrategyShip{
 
 public:
-	virtual void strat_gothrew() = 0;
+
+	virtual void strat() = 0;
 
 	/*
 	 *	Strategie 1:
@@ -19,32 +20,29 @@ public:
 	 *	ob eine Koordinate ein Teil eines Schiffes beinhält.
 	 */
 
-	virtual void strat_sourroundings() = 0;
-
 	/*
 	 *	Strategie 2:
 	 *	Es wird zunächst Strategie 2 angewandt bis ein Teil vom Schiff erreicht wird. Danach wird die unmittelbare
 	 *	Umgebung auf Schiffe bzw. Schiffteile geprüft.
 	 *	Wichtig:
-	 *		>> Fehlerbehebungen bei 1. und letzter x-Achse sowie 1. und letzter y-Achse
-	 *		>> Abbruch bei Nachricht "Schiff versenkt!"
+	 *
 	 */
 
 };
 
-class StrategyOneShip : public IStrategyShip {
+class Strat_One : public IStrategyShip{
 
 public:
-	virtual void strat_gothrew();
+
+	virtual void strat();
 
 };
 
-class StrategyTwoShip : public IStrategyShip {
+class Strat_Two : public IStrategyShip{
 
 public:
-	virtual void strat_sourroundings();
 
+	virtual void strat();
 };
-
 
 #endif /* DESTROYSHIP_H_ */
