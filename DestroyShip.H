@@ -30,7 +30,7 @@ public:
 
 };
 
-class Strat_One : public IStrategyShip{
+class StratOne : public IStrategyShip{
 
 public:
 
@@ -38,7 +38,7 @@ public:
 
 };
 
-class Strat_Two : public IStrategyShip{
+class StratTwo : public IStrategyShip{
 
 public:
 

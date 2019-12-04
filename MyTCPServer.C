@@ -43,13 +43,15 @@ string MyTCPServer::myResponse(string input){
 	 *
 	 */
 
-	if(input.compare(0,6,"COORD[") == 0){
-		if(2!=sscanf(input.c_str(), "COORD[%d;%d]", &x, &y) ){
-			return string("RES[-1]");
+	if(input.compare(0,6,"COORD[") == 0)
+	{
+		if(2!=sscanf(input.c_str(), "COORD[%d;%d]", &x, &y) )
+		{
+			return string("RES[-1]\n");
 		}
 
 		if( (x < 1) || (y < 1) || (x > 10) || (y > 10) ){
-			return string("RES[-2]");
+			return string("RES[-2]\n");
 		}
 
 		cout << "shoot(" << x << "," << y << ")\n";
@@ -57,7 +59,23 @@ string MyTCPServer::myResponse(string input){
 		result = world_->shoot(x,y);
 
 		//result = (TASK3::ShootResult) (rand() % 6);
-		ss << "RES[" << result << "]";
+
+		if (result == 4)
+		{
+			ss << "RES[1]\n        RES[2]\n";
+			ss << "         RES[" << result << "]\n";
+		}
+		else if (result == 2)
+		{
+			ss << "RES[1]\n";
+
+			ss << "        RES[" << result << "]\n";
+		}
+		else
+		{
+			ss << "RES[" << result << "]\n";
+		}
+
 		return ss.str();
 	};
 
@@ -73,8 +91,13 @@ string MyTCPServer::myResponse(string input){
 
 		world_->printBoard();
 
-		return string("CREATING NEW GAME");
+		return string("CREATING NEW GAME\n");
 	};
 
-	return string("UNKNOWN COMMAND");
+	/*if(input.compare(0,3, "HELP") == 0 ){
+
+		return string("BYEBYE for disconnect\n\nCOORD[x;y] for sending coordinates to the server\n\nHELP for a list of commands\n\nNEWGAME for starting a new game\n\n");
+	};*/
+
+	return string("UNKNOWN COMMAND!\n");
 }

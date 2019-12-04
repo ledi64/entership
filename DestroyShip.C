@@ -8,38 +8,36 @@
 #include "DestroyShip.H"
 #include "TASK3.H"
 #include "TASK3.C"
+#include "SIMPLESOCKET.H"
+#include "MyTCPServer.H"
 
+#include <unistd.h>
 #include <string>
 
 using namespace std;
 
-virtual void StrategyOneShip::strat_gothrew()
-{
+void StratOne::strat(){
 	int x, y;
+
 	x = 1;
 	y = 1;
 
 	while(y <= 10)
 	{
-	    while (x <= 10)
-	    {
-	        cout << "X-Koordinate:  ";
-	        cout << x << endl;
-	        cout << "Y-Koordinate:  ";
-	        cout << y << endl << endl;
+		while (x <= 10)
+		{
+			cout << "COORD[" << x << ";" << y << "]" ;
 
-	        x++;
-	    }
+			x++;
 
-	    y++;
-	    x = 1;
+			sleep(1);
+		}
+
+		y++;
+		x = 1;
 	}
+
 }
-
-virtual void StrategyTwoShip::strat_sourroundings()
-{
-
-};
 
 
 
