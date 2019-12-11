@@ -27,35 +27,17 @@
 #include "MyTCPServer.H"
 
 using namespace std;
-/*
-int main() {
-	srand(time(NULL));
-	TCPclient c;
-	string host = "localhost";
-	string msg;
 
-	//connect to host
-	c.conn(host , 2021);
+/*int main() {
 
-	int i=0;
-	bool goOn=1;
-	while(goOn){ // send and receive data
-		if((rand() % 20) < i++){
-			msg = string("BYEBYE");
-			goOn = 0;
-		}else{
-			msg = string("client wants this");
-		}
-		cout << "client sends:" << msg << endl;
-		c.sendData(msg);
-		msg = c.receive(32);
-		cout << "got response:" << msg << endl;
-		sleep(1);
+	StratOne *run;
 
-	}
-}*/
+	run->strat();
 
-int main() {
+	delete run;*/
+
+	//Strategie 1
+	/*
 	srand(time(NULL));
 	TCPclient c;
 	string host = "localhost";
@@ -120,72 +102,78 @@ int main() {
 			x = 1;
 		}
 
-		/*msg = "COORD"
-
-		cout << "client sends:" << msg << endl;
-		c.sendData(msg);
-		msg = c.receive(32);
-		cout << "got response:" << msg << endl;
-		sleep(1);*/
 	}
-	cout << "client says: ";
+
 	ans = "BYEBYE";
+	cout << "client says: " << ans << endl << endl;
 	c.sendData(ans);
 
-}
+	cout << "Disconnecting from server..." << endl;*/
 
-/*int main(){
-
-	//srand(time(NULL));
+	//StratTwo
+	/*srand(time(NULL));
 	TCPclient c;
 	string host = "localhost";
-	string msg, input;
+	string msg, ans;
+	stringstream shout;
+
+	int shots;
+
+	shout.clear();
+
+	//connect to host
+	c.conn(host , 2021);
+
+	int i=0;
+	//bool goOn=1;
 	int counter = 0;
 
-	//StratOne s;
-
-	c.conn(host, 2021);
-
-	bool goOn = 1;
-
-	while(goOn)
+	while (i <= 10)
 	{
-		/*if(input.compare(0,6, "RES[4]") == 0){
-			cout << "NEWGAME" << endl;
-		}else if(counter > 10 ) {
-			msg = string("BYEBYE");
+		shout.str("");
+
+		/*if(counter == 100)
+		{
 			goOn = 0;
-		}else{
+
+			break;
+		}
 
 		int x, y;
 
-		x = 1;
-		y = 1;
+		x = rand() % 10 + 1;
 
-		cout << "Start" << endl;
+		y = rand() % 10 + 1;
 
-		while(y <= 10)
-		{
-			while (x <= 10)
-			{
-				cout << "COORD[" << x << ";" << y << "]" ;
+		/*
+		 * Erzeuge zwei Felder mit den Random Werten von x und y
+		 * Prüfe bei neuer Erzeugung, ob die Zahlen bereits im Array vorhanden sind
+		 * Falls ja, erzeuge neue Zahl, sonst mach weiter und fülle den Array weiter
+		 *
+		 * Feldgröße begrenzt mit 10 x und 10 y Werten
+		 *
 
-				x++;
 
-				//sleep(1);
-			}
+		shout << "COORD[" << x << ";" << y << "]";
+		msg = shout.str();
 
-			y++;
-			x = 1;
-		}
-		if(y == 10) cout << "BYEBYE";
+		cout << "client:	" << msg << endl;
+		c.sendData(msg);
 
-		sleep(1);
+		msg = c.receive(24);
+		cout << "server:	" << msg << endl;
 
-		//}
+		i++;
+
 	}
+	ans = "BYEBYE";
+	cout << "client says: " << ans << endl << endl;
+	c.sendData(ans);
+
+	cout << "Disconnecting from server..." << endl;
 
 }*/
+
 
 
 

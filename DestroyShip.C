@@ -17,30 +17,78 @@
 using namespace std;
 
 void StratOne::strat(){
-	int x, y;
 
-	x = 1;
-	y = 1;
+	srand(time(NULL));
+	TCPclient c;
+	string host = "localhost";
+	string msg, ans;
+	stringstream shout;
 
-	while(y <= 10)
+	int shots;
+
+	shout.clear();
+
+	//connect to host
+	c.conn(host , 2021);
+
+	int i=0;
+	bool goOn=1;
+
+	while(goOn)
 	{
-		while (x <= 10)
+		int x = 1;
+		int y = 1;
+
+		while(y <= 10)
 		{
-			cout << "COORD[" << x << ";" << y << "]" ;
+			if(y == 10)
+			{
+				goOn = 0;
+			}
 
-			x++;
+			while (x <= 10)
+			{
+				shout.str("");
 
-			sleep(1);
+				shout << "COORD[" << x << ";" << y << "]";
+				msg = shout.str();
+
+				cout << "client:	" << msg << endl;
+				c.sendData(msg);
+
+				msg = c.receive(24);
+				cout << "server:	" << msg << endl;
+
+				if(msg.compare(0,6, "RES[1]") == 0)
+				{
+					shots++;
+
+					cout << shots << endl;
+				}
+
+				if(shots == 30)
+				{
+					y = 10;
+
+					break;
+				}
+
+				x++;
+
+				sleep(1);
+			}
+
+			y++;
+			x = 1;
 		}
 
-		y++;
-		x = 1;
 	}
+	cout << "client says: ";
+	ans = "BYEBYE";
+	c.sendData(ans);
 
 }
 
+void StratTwo::strat(){
 
-
-
-
-
+}

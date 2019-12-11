@@ -22,9 +22,8 @@ public:
 
 	/*
 	 *	Strategie 2:
-	 *	Es wird zunächst Strategie 2 angewandt bis ein Teil vom Schiff erreicht wird. Danach wird die unmittelbare
-	 *	Umgebung auf Schiffe bzw. Schiffteile geprüft.
-	 *	Wichtig:
+	 *	Ähnelt Strategie 1, jedoch werden zufällig Koordinaten erzeugt und dem Server geschickt
+	 *	Zudem wird geprüft, ob die Koordinaten bereits verschickt wurden.
 	 *
 	 */
 
