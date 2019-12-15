@@ -50,14 +50,8 @@ main:	$(OBJS)
 server:	server.o MyTCPServer.o TASK3.o
 	$(CC) -o server server.o  SIMPLESOCKET.o MyTCPServer.o TASK3.o -L/usr/lib/x86_64-linux-gnu -ldl -lstdc++  -std=c++11
 
-client:	client.o
-	$(CC) -o client client.o SIMPLESOCKET.o -L/usr/lib/x86_64-linux-gnu -ldl -lstdc++  -std=c++11
-	
-MyTCPServer:	MyTCPServer.o
-	$(CC) -o MyTCPServer MyTCPServer.o SIMPLESOCKET.o -L/usr/lib/x86_64-linux-gnu -ldl -lstdc++  -std=c++11
-
-DestroyShip:	DestroyShip.o
-	$(CC) -o MyTCPServer MyTCPServer.o SIMPLESOCKET.o -L/usr/lib/x86_64-linux-gnu -ldl -lstdc++  -std=c++11
+client:	client.o DestroyShip.o
+	$(CC) -o client client.o SIMPLESOCKET.o DestroyShip.o -L/usr/lib/x86_64-linux-gnu -ldl -lstdc++  -std=c++11
 
 clean:
 	-rm -r -f   $(DEMOTARGET) *.o DOXYGENDOC  *.txt
