@@ -22,6 +22,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <fstream>
 #include "TASK3.H"
 
 using namespace std;

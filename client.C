@@ -28,153 +28,15 @@
 
 using namespace std;
 
-/*int main() {
+int main()
+{
+	StratOne v1;
 
-	StratOne *run;
+	v1.strat();
 
-	run->strat();
+	StratOne v2;
 
-	delete run;*/
-
-	//Strategie 1
-	/*
-	srand(time(NULL));
-	TCPclient c;
-	string host = "localhost";
-	string msg, ans;
-	stringstream shout;
-
-	int shots;
-
-	shout.clear();
-
-	//connect to host
-	c.conn(host , 2021);
-
-	int i=0;
-	bool goOn=1;
-
-	while(goOn)
-	{
-		int x = 1;
-		int y = 1;
-
-		while(y <= 10)
-		{
-			if(y == 10)
-			{
-				goOn = 0;
-			}
-
-			while (x <= 10)
-			{
-				shout.str("");
-
-				shout << "COORD[" << x << ";" << y << "]";
-				msg = shout.str();
-
-				cout << "client:	" << msg << endl;
-				c.sendData(msg);
-
-				msg = c.receive(24);
-				cout << "server:	" << msg << endl;
-
-				if(msg.compare(0,6, "RES[1]") == 0)
-				{
-					shots++;
-
-					cout << shots << endl;
-				}
-
-				if(shots == 30)
-				{
-					y = 10;
-
-					break;
-				}
-
-				x++;
-
-				sleep(1);
-			}
-
-			y++;
-			x = 1;
-		}
-
-	}
-
-	ans = "BYEBYE";
-	cout << "client says: " << ans << endl << endl;
-	c.sendData(ans);
-
-	cout << "Disconnecting from server..." << endl;*/
-
-	//StratTwo
-	/*srand(time(NULL));
-	TCPclient c;
-	string host = "localhost";
-	string msg, ans;
-	stringstream shout;
-
-	int shots;
-
-	shout.clear();
-
-	//connect to host
-	c.conn(host , 2021);
-
-	int i=0;
-	//bool goOn=1;
-	int counter = 0;
-
-	while (i <= 10)
-	{
-		shout.str("");
-
-		/*if(counter == 100)
-		{
-			goOn = 0;
-
-			break;
-		}
-
-		int x, y;
-
-		x = rand() % 10 + 1;
-
-		y = rand() % 10 + 1;
-
-		/*
-		 * Erzeuge zwei Felder mit den Random Werten von x und y
-		 * Prüfe bei neuer Erzeugung, ob die Zahlen bereits im Array vorhanden sind
-		 * Falls ja, erzeuge neue Zahl, sonst mach weiter und fülle den Array weiter
-		 *
-		 * Feldgröße begrenzt mit 10 x und 10 y Werten
-		 *
-
-
-		shout << "COORD[" << x << ";" << y << "]";
-		msg = shout.str();
-
-		cout << "client:	" << msg << endl;
-		c.sendData(msg);
-
-		msg = c.receive(24);
-		cout << "server:	" << msg << endl;
-
-		i++;
-
-	}
-	ans = "BYEBYE";
-	cout << "client says: " << ans << endl << endl;
-	c.sendData(ans);
-
-	cout << "Disconnecting from server..." << endl;
-
-}*/
-
-
+}
 
 
 

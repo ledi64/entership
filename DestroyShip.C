@@ -109,7 +109,8 @@ void StratOne::strat(){
 		//String wird geleert
 		shout.str("");
 
-		if (nmb_of_tests > 20)
+		//Beenden des Alg. bei 20 Durchgängen
+		if (nmb_of_tests > 49)
 		{
 			goOn = 0;
 		}
@@ -132,15 +133,7 @@ void StratOne::strat(){
 		//Neuer Durchgang
 		nmb_of_tests++;
 
-		goOn = 1;
-
 		//sleep(1);
-
-		//Beenden des Alg. bei 20 Durchgängen
-		if (nmb_of_tests > 20)
-		{
-			goOn = 0;
-		}
 	}
 
 	//Datei wird geschlossen
@@ -155,5 +148,7 @@ void StratOne::strat(){
 }
 
 void StratTwo::strat(){
+
+
 
 }
