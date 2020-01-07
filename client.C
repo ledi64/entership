@@ -31,11 +31,10 @@ using namespace std;
 int main()
 {
 	StratOne v1;
-
 	v1.strat();
 
-	StratOne v2;
-
+	/*StratTwo v2;
+	v2.strat();*/
 }
 
 

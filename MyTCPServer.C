@@ -63,14 +63,11 @@ string MyTCPServer::myResponse(string input){
 
 		if (result == 4)
 		{
-			ss << "RES[1]\n        RES[2]\n";
-			ss << "         RES[" << result << "]\n";
+			ss << "RES[" << result << "]\n";
 		}
 		else if (result == 2)
 		{
-			ss << "RES[1]\n";
-
-			ss << "        RES[" << result << "]\n";
+			ss << "RES[" << result << "]\n";
 		}
 		else
 		{
