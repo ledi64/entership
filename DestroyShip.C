@@ -115,14 +115,14 @@ void StratOne::strat(){
 		cout << endl << "shots needed:   " << shotcounter << endl;
 
 		//Durchgang und Anzahl an Schüsse werden in Datei geschrieben
-		data_stats << "stage " << nmb_of_tests << " :   ";
+		//data_stats << "stage " << nmb_of_tests << " :   ";
 		data_stats << shotcounter << endl;
 
 		//String wird geleert
 		shout.str("");
 
-		//Beenden des Alg. bei 20 Durchgängen
-		if (nmb_of_tests > 19)
+		//Beenden des Alg. bei 20/50 Durchgängen
+		if (nmb_of_tests > 49)
 		{
 			goOn = 0;
 			break;
